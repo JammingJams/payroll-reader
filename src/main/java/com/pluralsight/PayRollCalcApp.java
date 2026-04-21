@@ -12,9 +12,21 @@ public class PayRollCalcApp {
         //This code creates a new array for objects
         List<Employee> employeeList = new ArrayList<>();
 
+        String[] userFileChoice = {"src/main/resources/employees.csv", "TEMP don't use!"};
+
+        for(int i = 0; i < userFileChoice.length; i++) {
+            System.out.println(userFileChoice[i]);
+        }
+        System.out.print("What employee file do you want to chose?: ");
+        String userInputFileChoice = sc.nextLine().replaceAll("\\s+", "");
+        // This code ask user to input file name
+        System.out.print("What name do you want for your payroll file?: ");
+        String userFileNameChoice = sc.nextLine().replaceAll("\\s+","");
+
+
         //This code reads through the file and creates new instances for employees!
         try {
-            FileReader fileReader = new FileReader("src/main/resources/employees.csv");
+            FileReader fileReader = new FileReader(userInputFileChoice);
             BufferedReader bufReader = new BufferedReader(fileReader);
 
             String temp;
@@ -49,9 +61,8 @@ public class PayRollCalcApp {
             System.out.println("An critical error occurred!");
             e.getStackTrace();
         }
-
         try {
-            FileWriter fileWriter = new FileWriter("src/main/resources/payroll-sept-2023.cvs");
+            FileWriter fileWriter = new FileWriter("src/main/resources/" + userFileNameChoice + ".cvs");
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
 
             String text;
