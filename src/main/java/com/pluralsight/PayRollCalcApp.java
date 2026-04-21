@@ -22,7 +22,7 @@ public class PayRollCalcApp {
             //This bufReader reads through each line until there is no more lines IE 0 lines = null
             while((temp = bufReader.readLine()) != null) {
 
-                //This code splits each line into seperate parts in an array
+                //This code splits each line into separate parts in an array
                 String[] tempArray = temp.split("\\|");
 
                 //This code creates a new object
@@ -46,7 +46,8 @@ public class PayRollCalcApp {
 
         //This captures the Input and Output
         catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("An critical error occurred!");
+            e.getStackTrace();
         }
 
         try {
@@ -65,7 +66,7 @@ public class PayRollCalcApp {
             e.getStackTrace();
         }
 
-        //This code prints out all of the employee's information
+        //This code prints out all the employee's information
         for (int i = 1; i < employeeList.toArray().length; i++) {
             System.out.printf("Employee %d is %s and made $%.2f this week!\n",employeeList.get(i).getEmployeeId(), employeeList.get(i).getName(), employeeList.get(i).getGrossPay());
         }
