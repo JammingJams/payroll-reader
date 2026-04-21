@@ -28,14 +28,15 @@ public class PayRollCalcApp {
                 String[] tempArray = temp.split("\\|");
                 //This code creates a new object
                 Employee employee = new Employee();
-                //This code parses our string into doubles/ints
-                try {employee.setEmployeeId(Integer.parseInt(tempArray[0]));}
-                catch (NumberFormatException e) {employee.setEmployeeId(0);}
-                employee.setName(tempArray[1]);
-                try {employee.setHoursWorked(Double.parseDouble(tempArray[2]));}
-                catch (NumberFormatException e) {employee.setHoursWorked(0);}
-                try {employee.setPayRate(Double.parseDouble(tempArray[3]));}
-                catch (NumberFormatException e) {employee.setPayRate(0);}
+                try {
+                    employee.setEmployeeId(Integer.parseInt(tempArray[0]));
+                    employee.setName(tempArray[1]);
+                    employee.setHoursWorked(Double.parseDouble(tempArray[2]));
+                    employee.setPayRate(Double.parseDouble(tempArray[3]));
+                }
+                catch (NumberFormatException e) {
+                    System.out.println("Invalid information");
+                }
                 //This code stores our object into our array with the .add
                 employeeList.add(employee);
             }
