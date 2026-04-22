@@ -31,6 +31,8 @@ public class PayRollCalcApp {
 
             String temp;
 
+            bufReader.readLine();
+
             //This bufReader reads through each line until there is no more lines IE 0 lines = null
             while((temp = bufReader.readLine()) != null) {
 
@@ -62,7 +64,7 @@ public class PayRollCalcApp {
             e.getStackTrace();
         }
         try {
-            FileWriter fileWriter = new FileWriter("src/main/resources/" + userFileNameChoice + ".cvs");
+            FileWriter fileWriter = new FileWriter("src/main/resources/" + userFileNameChoice + ".csv");
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
 
             String text;
